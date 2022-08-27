@@ -14,9 +14,26 @@ class App extends Component {
         </div>
         <div className="content-screen">
           <h1>General Information</h1>
+          <form>
+            <fieldset>
+              <label>Name:</label>
+              <input type="text" size="35" />
+              <label>Email:</label>
+              <input type="text" size="35" />
+              <label>Phone Number:</label>
+              <input type="text" size="35" />
+              <label>Location:</label>
+              <input type="text" size="35" />
+            </fieldset>
+            <div className="button-row">
+              <button> Back </button>
+              <button type="submit"> Save </button>
+              <button> Continue </button>
+            </div>
+          </form>
         </div>
       </div>
-    )
+    );
   }
 }
 
