@@ -29,6 +29,8 @@ class App extends Component {
 
     this.handleGeneralChange = this.handleGeneralChange.bind(this);
     this.handleGeneralSubmit = this.handleGeneralSubmit.bind(this);
+    this.changeScreen = this.changeScreen.bind(this);
+    this.screenRender = this.screenRender.bind(this);
   }
 
   handleGeneralChange(e) {
@@ -63,6 +65,10 @@ class App extends Component {
     });
   }
 
+  changeScreen(newScreen) {
+    this.setState({ activeScreen: newScreen });
+  }
+
   screenRender(activeScreen) {
     switch (activeScreen) {
       case "general":
@@ -71,6 +77,7 @@ class App extends Component {
             text={this.state.text.generalInfo}
             handleChange={this.handleGeneralChange}
             handleSubmit={this.handleGeneralSubmit}
+            changeScreen={this.changeScreen}
           />
         );
       case "education":

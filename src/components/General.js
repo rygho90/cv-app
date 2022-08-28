@@ -6,6 +6,7 @@ class General extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.nextScreen = this.nextScreen.bind(this);
   }
 
   handleChange(e) {
@@ -14,6 +15,11 @@ class General extends Component {
 
   handleSubmit(e) {
     this.props.handleSubmit(e)
+  }
+
+  nextScreen(e) {
+    e.preventDefault()
+    this.props.changeScreen("education")
   }
 
   render() {
@@ -61,7 +67,7 @@ class General extends Component {
           <button type="submit" onClick={this.handleSubmit}>
             Save
           </button>
-          <button> Continue </button>
+          <button onClick={this.nextScreen}> Continue </button>
         </div>
       </form>
     );
