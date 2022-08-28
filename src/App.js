@@ -64,18 +64,24 @@ class App extends Component {
   }
 
   screenRender(activeScreen) {
-    switch(activeScreen) {
-      case 'general':
-        return <General />
-      case 'education':
-        return <Education />
+    switch (activeScreen) {
+      case "general":
+        return (
+          <General
+            text={this.state.text.generalInfo}
+            handleChange={this.handleGeneralChange}
+            handleSubmit={this.handleGeneralSubmit}
+          />
+        );
+      case "education":
+        return <Education />;
       default:
-        return <General />
+        return <General />;
     }
   }
 
   render() {
-    const { activeScreen, text, cv } = this.state;
+    const { activeScreen } = this.state;
 
     return (
       <div className="main-container">
@@ -88,53 +94,9 @@ class App extends Component {
         </div>
         <div className="content-screen">
           <h1>General Information</h1>
-          <form>
-            <fieldset>
-              <label>Name:</label>
-              <input
-                type="text"
-                size="35"
-                id="name"
-                value={text.name}
-                onChange={this.handleGeneralChange}
-              />
-              <label>Email:</label>
-              <input
-                type="text"
-                size="35"
-                id="email"
-                value={text.email}
-                onChange={this.handleGeneralChange}
-              />
-              <label>Phone Number:</label>
-              <input
-                type="text"
-                size="35"
-                id="phone"
-                value={text.phone}
-                onChange={this.handleGeneralChange}
-              />
-              <label>Location:</label>
-              <input
-                type="text"
-                size="35"
-                id="location"
-                value={text.location}
-                onChange={this.handleGeneralChange}
-              />
-            </fieldset>
-            <div className="button-row">
-              <button> Back </button>
-              <button type="submit" onClick={this.handleGeneralSubmit}>
-                Save
-              </button>
-              <button> Continue </button>
-            </div>
-          </form>
+          {this.screenRender(activeScreen)}
         </div>
-        {this.screenRender(activeScreen)}
       </div>
-      
     );
   }
 }
