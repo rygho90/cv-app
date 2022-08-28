@@ -1,5 +1,7 @@
 import "./App.css";
 import React, { Component } from "react";
+import General from "./components/General";
+import Education from "./components/Education";
 
 class App extends Component {
   constructor() {
@@ -119,7 +121,9 @@ class App extends Component {
             </div>
           </form>
         </div>
+        <General />
       </div>
+      
     );
   }
 }
