@@ -63,6 +63,17 @@ class App extends Component {
     });
   }
 
+  screenRender(activeScreen) {
+    switch(activeScreen) {
+      case 'general':
+        return <General />
+      case 'education':
+        return <Education />
+      default:
+        return <General />
+    }
+  }
+
   render() {
     const { activeScreen, text, cv } = this.state;
 
@@ -121,7 +132,7 @@ class App extends Component {
             </div>
           </form>
         </div>
-        <General />
+        {this.screenRender(activeScreen)}
       </div>
       
     );

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class Education extends Component {
   render() {
-    return <div>General</div>;
+    return <div>Education</div>;
   }
 }
 
