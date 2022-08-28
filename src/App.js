@@ -7,35 +7,62 @@ class App extends Component {
 
     this.state = {
       activeScreen: "general",
+      text: {
+        generalInfo: {
+          name: "",
+          email: "",
+          phone: "",
+          location: "",
+        },
+      },
       cv: {
         generalInfo: {
-          name: '',
-          email: '',
-          phone: '',
-          location: ''
-        }
+          name: "",
+          email: "",
+          phone: "",
+          location: "",
+        },
       },
     };
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleGeneralChange = this.handleGeneralChange.bind(this);
+    this.handleGeneralSubmit = this.handleGeneralSubmit.bind(this);
   }
 
-  handleChange(e) {
+  handleGeneralChange(e) {
+    this.setState({
+      text: {
+        ...this.state.text,
+        generalInfo: {
+          ...this.state.text.generalInfo,
+          [e.target.id]: e.target.value,
+        },
+      },
+    });
+
+    console.log(this.state);
+  }
+
+  handleGeneralSubmit(e) {
+    e.preventDefault();
+    let newInfo = this.state.text.generalInfo;
+    console.log({ newInfo });
     this.setState({
       cv: {
         ...this.state.cv,
         generalInfo: {
           ...this.state.generalInfo,
-          [e.target.id]: e.target.value
-        }
-      }
-    })
-    
-    console.log(this.state)
+          name: newInfo.name,
+          email: newInfo.email,
+          phone: newInfo.phone,
+          location: newInfo.location,
+        },
+      },
+    });
   }
 
   render() {
-    const { activeScreen, cv } = this.state;
+    const { activeScreen, text, cv } = this.state;
 
     return (
       <div className="main-container">
@@ -55,19 +82,39 @@ class App extends Component {
                 type="text"
                 size="35"
                 id="name"
-                value={cv.generalInfo.name}
-                onChange={this.handleChange}
+                value={text.name}
+                onChange={this.handleGeneralChange}
               />
               <label>Email:</label>
-              <input type="text" size="35" />
+              <input
+                type="text"
+                size="35"
+                id="email"
+                value={text.email}
+                onChange={this.handleGeneralChange}
+              />
               <label>Phone Number:</label>
-              <input type="text" size="35" />
+              <input
+                type="text"
+                size="35"
+                id="phone"
+                value={text.phone}
+                onChange={this.handleGeneralChange}
+              />
               <label>Location:</label>
-              <input type="text" size="35" />
+              <input
+                type="text"
+                size="35"
+                id="location"
+                value={text.location}
+                onChange={this.handleGeneralChange}
+              />
             </fieldset>
             <div className="button-row">
               <button> Back </button>
-              <button type="submit"> Save </button>
+              <button type="submit" onClick={this.handleGeneralSubmit}>
+                Save
+              </button>
               <button> Continue </button>
             </div>
           </form>
