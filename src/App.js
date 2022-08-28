@@ -2,7 +2,41 @@ import "./App.css";
 import React, { Component } from "react";
 
 class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      activeScreen: "general",
+      cv: {
+        generalInfo: {
+          name: '',
+          email: '',
+          phone: '',
+          location: ''
+        }
+      },
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(e) {
+    this.setState({
+      cv: {
+        ...this.state.cv,
+        generalInfo: {
+          ...this.state.generalInfo,
+          [e.target.id]: e.target.value
+        }
+      }
+    })
+    
+    console.log(this.state)
+  }
+
   render() {
+    const { activeScreen, cv } = this.state;
+
     return (
       <div className="main-container">
         <div className="side-bar">
@@ -17,7 +51,13 @@ class App extends Component {
           <form>
             <fieldset>
               <label>Name:</label>
-              <input type="text" size="35" />
+              <input
+                type="text"
+                size="35"
+                id="name"
+                value={cv.generalInfo.name}
+                onChange={this.handleChange}
+              />
               <label>Email:</label>
               <input type="text" size="35" />
               <label>Phone Number:</label>
