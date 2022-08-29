@@ -16,6 +16,13 @@ class App extends Component {
           phone: "",
           location: "",
         },
+        education: {
+          company: "",
+          title: "",
+          startYear: "",
+          endYear: "",
+          description: "",
+        },
       },
       cv: {
         generalInfo: {
@@ -24,16 +31,26 @@ class App extends Component {
           phone: "",
           location: "",
         },
+        education: {
+          company: "",
+          title: "",
+          startYear: "",
+          endYear: "",
+          description: "",
+        },
       },
     };
 
     this.handleGeneralChange = this.handleGeneralChange.bind(this);
     this.handleGeneralSubmit = this.handleGeneralSubmit.bind(this);
+    this.handleEducationChange = this.handleGeneralChange.bind(this);
+    this.handleEducationSubmit = this.handleGeneralSubmit.bind(this);
     this.changeScreen = this.changeScreen.bind(this);
     this.screenRender = this.screenRender.bind(this);
   }
 
   handleGeneralChange(e) {
+    console.log('GENERAL CHANGE')
     this.setState({
       text: {
         ...this.state.text,
@@ -65,6 +82,41 @@ class App extends Component {
     });
   }
 
+  handleEducationChange(e) {
+    console.log('EDU CHANGE')
+    this.setState({
+      text: {
+        ...this.state.text,
+        education: {
+          ...this.state.text.education,
+          [e.target.id]: e.target.value,
+        },
+      },
+    });
+
+    console.log(e.target.id);
+    console.log(this.state);
+  }
+
+  handleEducationSubmit(e) {
+    e.preventDefault();
+    let newInfo = this.state.text.education;
+    console.log({ newInfo });
+    this.setState({
+      cv: {
+        ...this.state.cv,
+        education: {
+          ...this.state.education,
+          company: newInfo.company,
+          title: newInfo.title,
+          startYear: newInfo.startYear,
+          endYear: newInfo.endYear,
+          description: newInfo.description,
+        },
+      },
+    });
+  }
+
   changeScreen(newScreen) {
     this.setState({ activeScreen: newScreen });
   }
@@ -81,7 +133,14 @@ class App extends Component {
           />
         );
       case "education":
-        return <Education />;
+        return (
+          <Education
+            text={this.state.text.education}
+            handleChange={this.handleEducationChange}
+            handleSubmit={this.handleEducationSubmit}
+            changeScreen={this.changeScreen}
+          />
+        );
       default:
         return <General />;
     }
