@@ -148,7 +148,7 @@ class App extends Component {
 
     return (
       <div className="main-container">
-        <Sidebar activeScreen={this.state.activeScreen}/>
+        <Sidebar activeScreen={this.state.activeScreen} changeScreen={this.changeScreen}/>
         <div className="content-screen">
           <ScreenTitle activeScreen={this.state.activeScreen}/>
           {this.screenRender(activeScreen)}
