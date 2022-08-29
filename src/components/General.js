@@ -6,6 +6,7 @@ class General extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.prevScreen = this.prevScreen.bind(this);
     this.nextScreen = this.nextScreen.bind(this);
   }
 
@@ -15,6 +16,10 @@ class General extends Component {
 
   handleSubmit(e) {
     this.props.handleSubmit(e)
+  }
+
+  prevScreen(e) {
+    e.preventDefault()
   }
 
   nextScreen(e) {
@@ -63,7 +68,7 @@ class General extends Component {
           />
         </fieldset>
         <div className="button-row">
-          <button> Back </button>
+          <button onClick={this.prevScreen}> Back </button>
           <button type="submit" onClick={this.handleSubmit}>
             Save
           </button>
