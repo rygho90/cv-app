@@ -41,80 +41,75 @@ class App extends Component {
       },
     };
 
-    this.handleGeneralChange = this.handleGeneralChange.bind(this);
-    this.handleGeneralSubmit = this.handleGeneralSubmit.bind(this);
-    this.handleEducationChange = this.handleGeneralChange.bind(this);
-    this.handleEducationSubmit = this.handleGeneralSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.changeScreen = this.changeScreen.bind(this);
     this.screenRender = this.screenRender.bind(this);
   }
 
-  handleGeneralChange(e) {
-    console.log('GENERAL CHANGE')
-    this.setState({
-      text: {
-        ...this.state.text,
-        generalInfo: {
-          ...this.state.text.generalInfo,
-          [e.target.id]: e.target.value,
+  handleChange(e) {
+    if (this.state.activeScreen === "general") {
+      this.setState({
+        text: {
+          ...this.state.text,
+          generalInfo: {
+            ...this.state.text.generalInfo,
+            [e.target.id]: e.target.value,
+          },
         },
-      },
-    });
+      });
+    }
+
+    if (this.state.activeScreen === "education") {
+      this.setState({
+        text: {
+          ...this.state.text,
+          education: {
+            ...this.state.text.education,
+            [e.target.id]: e.target.value,
+          },
+        },
+      });
+    }
 
     console.log(this.state);
   }
 
-  handleGeneralSubmit(e) {
+  handleSubmit(e) {
     e.preventDefault();
-    let newInfo = this.state.text.generalInfo;
-    console.log({ newInfo });
-    this.setState({
-      cv: {
-        ...this.state.cv,
-        generalInfo: {
-          ...this.state.generalInfo,
-          name: newInfo.name,
-          email: newInfo.email,
-          phone: newInfo.phone,
-          location: newInfo.location,
-        },
-      },
-    });
-  }
 
-  handleEducationChange(e) {
-    console.log('EDU CHANGE')
-    this.setState({
-      text: {
-        ...this.state.text,
-        education: {
-          ...this.state.text.education,
-          [e.target.id]: e.target.value,
+    if (this.state.activeScreen === "general") {
+      let newInfo = this.state.text.generalInfo;
+      this.setState({
+        cv: {
+          ...this.state.cv,
+          generalInfo: {
+            ...this.state.generalInfo,
+            name: newInfo.name,
+            email: newInfo.email,
+            phone: newInfo.phone,
+            location: newInfo.location,
+          },
         },
-      },
-    });
+      });
+    }
 
-    console.log(e.target.id);
-    console.log(this.state);
-  }
-
-  handleEducationSubmit(e) {
-    e.preventDefault();
-    let newInfo = this.state.text.education;
-    console.log({ newInfo });
-    this.setState({
-      cv: {
-        ...this.state.cv,
-        education: {
-          ...this.state.education,
-          company: newInfo.company,
-          title: newInfo.title,
-          startYear: newInfo.startYear,
-          endYear: newInfo.endYear,
-          description: newInfo.description,
+    if (this.state.activeScreen === "education") {
+      let newInfo = this.state.text.education;
+      this.setState({
+        cv: {
+          ...this.state.cv,
+          education: {
+            ...this.state.education,
+            company: newInfo.company,
+            title: newInfo.title,
+            startYear: newInfo.startYear,
+            endYear: newInfo.endYear,
+            description: newInfo.description,
+          },
         },
-      },
-    });
+      });
+    }
   }
 
   changeScreen(newScreen) {
@@ -127,8 +122,8 @@ class App extends Component {
         return (
           <General
             text={this.state.text.generalInfo}
-            handleChange={this.handleGeneralChange}
-            handleSubmit={this.handleGeneralSubmit}
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
             changeScreen={this.changeScreen}
           />
         );
@@ -136,8 +131,8 @@ class App extends Component {
         return (
           <Education
             text={this.state.text.education}
-            handleChange={this.handleEducationChange}
-            handleSubmit={this.handleEducationSubmit}
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
             changeScreen={this.changeScreen}
           />
         );

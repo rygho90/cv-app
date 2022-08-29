@@ -45,25 +45,33 @@ class Education extends Component {
           <input
             type="text"
             size="35"
-            id="email"
+            id="title"
+            value={text.title}
+            onChange={this.handleChange}
           />
           <label>Start Year:</label>
           <input
             type="text"
             size="35"
-            id="phone"
+            id="startYear"
+            value={text.startYear}
+            onChange={this.handleChange}
           />
           <label>End Year:</label>
           <input
             type="text"
             size="35"
-            id="location"
+            id="endYear"
+            value={text.endYear}
+            onChange={this.handleChange}
           />
           <label>Job Description:</label>
           <input
             type="text"
             size="35"
-            id="location"
+            id="description"
+            value={text.description}
+            onChange={this.handleChange}
           />
         </fieldset>
         <div className="button-row">
