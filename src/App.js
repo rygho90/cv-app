@@ -1,5 +1,6 @@
 import "./App.css";
 import React, { Component } from "react";
+import ScreenTitle from "./components/ScreenTitle";
 import General from "./components/General";
 import Education from "./components/Education";
 
@@ -154,7 +155,7 @@ class App extends Component {
           <div className="side-tab">Review and Submit</div>
         </div>
         <div className="content-screen">
-          <h1>General Information</h1>
+          <ScreenTitle activeScreen={this.state.activeScreen}/>
           {this.screenRender(activeScreen)}
         </div>
       </div>
