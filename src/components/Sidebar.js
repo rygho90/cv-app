@@ -25,15 +25,15 @@ class Sidebar extends Component {
           General Information
         </div>
         <div
-          id="education"
+          id="work"
           className={`side-tab ${
-            this.props.activeScreen === "education" ? "active-tab" : ""
+            this.props.activeScreen === "work" ? "active-tab" : ""
           }`}
           onClick={this.changeScreen}
         >
-          Education
+          Work Experience
         </div>
-        <div className="side-tab">Work Experience</div>
+        <div className="side-tab">Education</div>
         <div className="side-tab">Skills</div>
         <div className="side-tab">Review and Submit</div>
       </div>

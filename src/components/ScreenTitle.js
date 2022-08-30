@@ -5,6 +5,8 @@ class ScreenTitle extends Component {
     switch (this.props.activeScreen) {
       case "general":
         return <h1>General Information</h1>;
+      case "work":
+        return <h1>Work Experience</h1>;
       case "education":
         return <h1>Education</h1>;
       default:

@@ -4,6 +4,7 @@ import Sidebar from "./components/Sidebar";
 import ScreenTitle from "./components/ScreenTitle";
 import General from "./components/General";
 import Education from "./components/Education";
+import Work from "./components/Work";
 
 class App extends Component {
   constructor() {
@@ -18,7 +19,7 @@ class App extends Component {
           phone: "",
           location: "",
         },
-        education: {
+        work: {
           company: "",
           title: "",
           startYear: "",
@@ -33,7 +34,7 @@ class App extends Component {
           phone: "",
           location: "",
         },
-        education: {
+        work: {
           company: "",
           title: "",
           startYear: "",
@@ -62,12 +63,12 @@ class App extends Component {
       });
     }
 
-    if (this.state.activeScreen === "education") {
+    if (this.state.activeScreen === "work") {
       this.setState({
         text: {
           ...this.state.text,
-          education: {
-            ...this.state.text.education,
+          work: {
+            ...this.state.text.work,
             [e.target.id]: e.target.value,
           },
         },
@@ -96,13 +97,13 @@ class App extends Component {
       });
     }
 
-    if (this.state.activeScreen === "education") {
-      let newInfo = this.state.text.education;
+    if (this.state.activeScreen === "work") {
+      let newInfo = this.state.text.work;
       this.setState({
         cv: {
           ...this.state.cv,
-          education: {
-            ...this.state.education,
+          work: {
+            ...this.state.work,
             company: newInfo.company,
             title: newInfo.title,
             startYear: newInfo.startYear,
@@ -129,10 +130,10 @@ class App extends Component {
             changeScreen={this.changeScreen}
           />
         );
-      case "education":
+      case "work":
         return (
-          <Education
-            text={this.state.text.education}
+          <Work
+            text={this.state.text.work}
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
             changeScreen={this.changeScreen}

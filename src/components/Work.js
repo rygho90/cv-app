@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 
-class General extends Component {
+class Work extends Component {
   constructor(props) {
     super(props);
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.prevScreen = this.prevScreen.bind(this);
     this.nextScreen = this.nextScreen.bind(this);
+    this.prevScreen = this.prevScreen.bind(this);
   }
 
   handleChange(e) {
@@ -20,50 +20,57 @@ class General extends Component {
 
   prevScreen(e) {
     e.preventDefault()
+    this.props.changeScreen("general")
   }
 
   nextScreen(e) {
     e.preventDefault()
-    this.props.changeScreen("work")
   }
 
   render() {
     const { text } = this.props
 
-
     return (
       <form>
         <fieldset>
-          <label>Name:</label>
+          <label>Company:</label>
           <input
             type="text"
             size="35"
-            id="name"
-            value={text.name}
+            id="company"
+            value={text.company}
             onChange={this.handleChange}
           />
-          <label>Email:</label>
+          <label>Job Title:</label>
           <input
             type="text"
             size="35"
-            id="email"
-            value={text.email}
+            id="title"
+            value={text.title}
             onChange={this.handleChange}
           />
-          <label>Phone Number:</label>
+          <label>Start Year:</label>
           <input
             type="text"
             size="35"
-            id="phone"
-            value={text.phone}
+            id="startYear"
+            value={text.startYear}
             onChange={this.handleChange}
           />
-          <label>Location:</label>
+          <label>End Year:</label>
           <input
             type="text"
             size="35"
-            id="location"
-            value={text.location}
+            id="endYear"
+            value={text.endYear}
+            onChange={this.handleChange}
+          />
+          <label>Job Description:</label>
+          <input
+            type="text"
+            size="35"
+            id="description"
+            value={text.description}
             onChange={this.handleChange}
           />
         </fieldset>
@@ -79,4 +86,4 @@ class General extends Component {
   }
 }
 
-export default General;
+export default Work;
