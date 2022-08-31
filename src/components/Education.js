@@ -20,7 +20,7 @@ class Education extends Component {
 
   prevScreen(e) {
     e.preventDefault()
-    this.props.changeScreen("general")
+    this.props.changeScreen("work")
   }
 
   nextScreen(e) {
@@ -33,20 +33,28 @@ class Education extends Component {
     return (
       <form>
         <fieldset>
-          <label>Company:</label>
+          <label>School:</label>
           <input
             type="text"
             size="35"
-            id="company"
-            value={text.company}
+            id="school"
+            value={text.school}
             onChange={this.handleChange}
           />
-          <label>Job Title:</label>
+          <label>Degree:</label>
           <input
             type="text"
             size="35"
-            id="title"
-            value={text.title}
+            id="degree"
+            value={text.degree}
+            onChange={this.handleChange}
+          />
+          <label>Subject:</label>
+          <input
+            type="text"
+            size="35"
+            id="subject"
+            value={text.subject}
             onChange={this.handleChange}
           />
           <label>Start Year:</label>
@@ -63,14 +71,6 @@ class Education extends Component {
             size="35"
             id="endYear"
             value={text.endYear}
-            onChange={this.handleChange}
-          />
-          <label>Job Description:</label>
-          <input
-            type="text"
-            size="35"
-            id="description"
-            value={text.description}
             onChange={this.handleChange}
           />
         </fieldset>

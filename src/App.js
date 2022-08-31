@@ -26,6 +26,13 @@ class App extends Component {
           endYear: "",
           description: "",
         },
+        education: {
+          school: "",
+          degree: "",
+          subject: "",
+          startYear: "",
+          endYear: "",
+        },
       },
       cv: {
         generalInfo: {
@@ -40,6 +47,13 @@ class App extends Component {
           startYear: "",
           endYear: "",
           description: "",
+        },
+        education: {
+          school: "",
+          degree: "",
+          subject: "",
+          startYear: "",
+          endYear: "",
         },
       },
     };
@@ -69,6 +83,18 @@ class App extends Component {
           ...this.state.text,
           work: {
             ...this.state.text.work,
+            [e.target.id]: e.target.value,
+          },
+        },
+      });
+    }
+
+    if (this.state.activeScreen === "education") {
+      this.setState({
+        text: {
+          ...this.state.text,
+          education: {
+            ...this.state.text.education,
             [e.target.id]: e.target.value,
           },
         },
@@ -113,6 +139,23 @@ class App extends Component {
         },
       });
     }
+
+    if (this.state.activeScreen === "education") {
+      let newInfo = this.state.text.education;
+      this.setState({
+        cv: {
+          ...this.state.cv,
+          work: {
+            ...this.state.education,
+            school: newInfo.school,
+            degree: newInfo.degree,
+            subject: newInfo.subject,
+            startYear: newInfo.startYear,
+            endYear: newInfo.endYear,
+          },
+        },
+      });
+    }
   }
 
   changeScreen(newScreen) {
@@ -139,6 +182,15 @@ class App extends Component {
             changeScreen={this.changeScreen}
           />
         );
+      case "education":
+        return (
+          <Education
+            text={this.state.text.education}
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
+            changeScreen={this.changeScreen}
+          />
+        );
       default:
         return <General />;
     }
@@ -149,9 +201,12 @@ class App extends Component {
 
     return (
       <div className="main-container">
-        <Sidebar activeScreen={this.state.activeScreen} changeScreen={this.changeScreen}/>
+        <Sidebar
+          activeScreen={this.state.activeScreen}
+          changeScreen={this.changeScreen}
+        />
         <div className="content-screen">
-          <ScreenTitle activeScreen={this.state.activeScreen}/>
+          <ScreenTitle activeScreen={this.state.activeScreen} />
           {this.screenRender(activeScreen)}
         </div>
       </div>

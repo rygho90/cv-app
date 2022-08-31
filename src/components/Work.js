@@ -25,6 +25,7 @@ class Work extends Component {
 
   nextScreen(e) {
     e.preventDefault()
+    this.props.changeScreen("education")
   }
 
   render() {
