@@ -10,6 +10,11 @@ export default function App() {
   const [cv, setCv] = useState(sampleCv);
   const [editScreen, setEditScreen] = useState(null);
 
+  function handleEditScreenChange(screenName) {
+    setEditScreen(screenName);
+    console.log(editScreen)
+  }
+
   return (
     <div className="main-container">
       <div className="button-bar">
@@ -19,7 +24,7 @@ export default function App() {
         <button className="action-btn clear-btn">CLEAR</button>
       </div>
       <div className="cv">
-        <div className="hover-border">
+        <div className="hover-border" onClick={() => handleEditScreenChange("personalDetails")}>
           <PersonalDetails details={cv.personalDetails} />
         </div>
 
@@ -49,7 +54,7 @@ export default function App() {
             <div className="info-text">Click a section to begin editing.</div>
           )}
           {editScreen === "personalDetails" && (
-            <EditPersonalDetails details={cv.personalDetails} />
+            <EditPersonalDetails details={cv.personalDetails} handleEditScreenChange={handleEditScreenChange} />
           )}
         </div>
       </div>

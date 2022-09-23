@@ -1,11 +1,11 @@
 import React from "react";
 
-export default function EditPersonalDetails({ details }) {
+export default function EditPersonalDetails({ details, handleEditScreenChange }) {
   const { name, title, location, phone, email, description } = details;
 
   return (
     <>
-      <div className="close-btn">&times;</div>
+      <div className="close-btn" onClick={() => handleEditScreenChange(null)}>&times;</div>
       <h2 className="editor-heading">Personal Details</h2>
       <div className="edit-grid">
         <label htmlFor="name">Name</label>
