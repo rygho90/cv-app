@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function WorkExperience(props) {
-  const { id, company, title, startYear, endYear, description } = props;
+  const { company, title, startYear, endYear, description } = props;
 
   return (
     <>

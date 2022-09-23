@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../css/app.css";
 import PersonalDetails from "./PersonalDetails";
 import WorkExperience from "./WorkExperience";
+import Education from "./Education";
 
 export default function App() {
   const [cv, setCv] = useState(sampleCv);
@@ -17,10 +18,11 @@ export default function App() {
           )
         })}
         <h2 className="section-heading">Education</h2>
-
-        <div>
-          <p>This is my edumucation.</p>
-        </div>
+        {cv.education.map(school => {
+          return (
+            <Education key={school.id} {...school}/>
+          )
+        })}
 
         <h2 className="section-heading">Skills</h2>
         <div>
@@ -63,11 +65,20 @@ const sampleCv = {
   ],
   education: [
     {
+      id: 1,
       school: "Totally Real University (TRU)",
-      degree: "Doctorate",
+      degree: "Bachelors",
       field: "Computer Science",
-      startYear: "2015",
+      startYear: "2017",
       endYear: "2019",
+    },
+    {
+      id: 2,
+      school: "Community College",
+      degree: "Associates",
+      field: "General Ed.",
+      startYear: "2015",
+      endYear: "2017",
     },
   ],
   skills: ["HTML", "CSS", "JavaScript", "React"],
