@@ -1,7 +1,11 @@
 import React from 'react'
 
-export default function Skills() {
+export default function Skills({ skills }) {
   return (
-    <div>Skills</div>
+    <ul className="skills-grid">
+      {skills.map((skill) => {
+          return <li key={skill.id}>{skill.text}</li>;
+        })}
+    </ul>
   )
 }

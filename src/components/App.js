@@ -24,7 +24,7 @@ export default function App() {
           return <Education key={school.id} {...school} />;
         })}
         <h2 className="section-heading">Skills</h2>
-        <Skills />
+        <Skills skills={cv.skills} />
       </div>
     </div>
   );
@@ -78,5 +78,22 @@ const sampleCv = {
       endYear: "2017",
     },
   ],
-  skills: ["HTML", "CSS", "JavaScript", "React"],
+  skills: [
+    {
+      id: 1,
+      text: "HTML",
+    },
+    {
+      id: 2,
+      text: "CSS",
+    },
+    {
+      id: 3,
+      text: "JavaScript",
+    },
+    {
+      id: 4,
+      text: "React",
+    },
+  ],
 };
