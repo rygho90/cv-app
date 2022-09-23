@@ -1,5 +1,6 @@
 @import-normalize;
 @import "personal-details.css";
+@import "work-experience.css";
 
 .main-container {
   display: flex;
@@ -36,5 +37,16 @@ header {
 
 h1 {
   text-transform: uppercase;
+}
+
+.section-heading {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.split-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 

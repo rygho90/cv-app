@@ -1,17 +1,16 @@
-.heading {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .details-group {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 7px;
-  }
-  
-  .details-group div {
-    text-align: right;
-    width: 100%;
-  }
-  
+.personal-details__heading {
+  display: flex;
+  flex-direction: column;
+}
+
+.personal-details__details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 7px;
+}
+
+.personal-details__details div {
+  text-align: right;
+  width: 100%;
+}

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../css/app.css";
 import PersonalDetails from "./PersonalDetails";
+import WorkExperience from "./WorkExperience";
 
 export default function App() {
   const [cv, setCv] = useState(sampleCv);
@@ -8,20 +9,21 @@ export default function App() {
   return (
     <div className="main-container">
       <div className="cv">
-
-        <PersonalDetails info={cv.personalDetails}/>
-
+        <PersonalDetails info={cv.personalDetails} />
+        <h2 className="section-heading">Work Experience</h2>
+        {cv.workExperience.map(job => {
+          return (
+            <WorkExperience key={job.id} {...job}/>
+          )
+        })}
+        <h2 className="section-heading">Education</h2>
 
         <div>
-          <h2>Work Experience</h2>
-          <p>This is my work experience.</p>
-        </div>
-        <div>
-          <h2>Education</h2>
           <p>This is my edumucation.</p>
         </div>
+
+        <h2 className="section-heading">Skills</h2>
         <div>
-          <h2>Skills</h2>
           <p>They pay the bills.</p>
         </div>
       </div>
@@ -41,10 +43,20 @@ const sampleCv = {
   },
   workExperience: [
     {
+      id: 1,
       company: "ACME Coding",
       title: "Software Engineer",
       startYear: "2020",
       endYear: "Present",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae pellentesque neque. Nunc convallis arcu sed dictum feugiat.",
+    },
+    {
+      id: 2,
+      company: "Software Company",
+      title: "Software Developer",
+      startYear: "2017",
+      endYear: "2019",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae pellentesque neque. Nunc convallis arcu sed dictum feugiat.",
     },

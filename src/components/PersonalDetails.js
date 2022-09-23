@@ -5,11 +5,11 @@ export default function PersonalDetails({ info }) {
   return (
     <>
       <header>
-        <div className="heading">
+        <div className="personal-details__heading">
           <h1>{name}</h1>
           <h2>{title}</h2>
         </div>
-        <div className="details-group">
+        <div className="personal-details__details">
           <div>{phone}</div>
           <div>{email}</div>
           <div>{location}</div>
