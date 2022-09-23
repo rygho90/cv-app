@@ -8,6 +8,7 @@ import EditPersonalDetails from "./EditPersonalDetails";
 
 export default function App() {
   const [cv, setCv] = useState(sampleCv);
+  const [editScreen, setEditScreen] = useState(null);
 
   return (
     <div className="main-container">
@@ -30,7 +31,8 @@ export default function App() {
 
       <div className="right-side">
         <div className="editor">
-          <EditPersonalDetails />
+          {!editScreen && <div className="info-text">Click a section to begin editing.</div>}
+          {editScreen === "personalDetails" && <EditPersonalDetails details={cv.personalDetails}/>}
         </div>
         <div className="button-bar">
           <button className="action-btn">PRINT</button>
