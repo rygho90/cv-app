@@ -3,6 +3,7 @@ import "../css/app.css";
 import PersonalDetails from "./PersonalDetails";
 import WorkExperience from "./WorkExperience";
 import Education from "./Education";
+import Skills from "./Skills";
 
 export default function App() {
   const [cv, setCv] = useState(sampleCv);
@@ -10,24 +11,20 @@ export default function App() {
   return (
     <div className="main-container">
       <div className="cv">
-        <PersonalDetails info={cv.personalDetails} />
+        <div className="red-border">
+          <PersonalDetails info={cv.personalDetails} />
+        </div>
+
         <h2 className="section-heading">Work Experience</h2>
-        {cv.workExperience.map(job => {
-          return (
-            <WorkExperience key={job.id} {...job}/>
-          )
+        {cv.workExperience.map((job) => {
+          return <WorkExperience key={job.id} {...job} />;
         })}
         <h2 className="section-heading">Education</h2>
-        {cv.education.map(school => {
-          return (
-            <Education key={school.id} {...school}/>
-          )
+        {cv.education.map((school) => {
+          return <Education key={school.id} {...school} />;
         })}
-
         <h2 className="section-heading">Skills</h2>
-        <div>
-          <p>They pay the bills.</p>
-        </div>
+        <Skills />
       </div>
     </div>
   );

@@ -10,7 +10,7 @@
 }
 
 .cv {
-  padding: 50px;
+  padding: 40px;
   width: 595px;
   min-height: 770px;
   border-radius: 2px;
@@ -52,4 +52,13 @@ h1 {
 
 .align-right {
   text-align: right;
+}
+
+.red-border {
+  border: solid 1px white;
+  padding: 5px;
+}
+.red-border:hover {
+  border: solid 1px red;
+  cursor: pointer;
 }
