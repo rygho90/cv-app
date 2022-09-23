@@ -4,6 +4,7 @@ import PersonalDetails from "./PersonalDetails";
 import WorkExperience from "./WorkExperience";
 import Education from "./Education";
 import Skills from "./Skills";
+import EditPersonalDetails from "./EditPersonalDetails";
 
 export default function App() {
   const [cv, setCv] = useState(sampleCv);
@@ -12,7 +13,7 @@ export default function App() {
     <div className="main-container">
       <div className="cv">
         <div className="red-border">
-          <PersonalDetails info={cv.personalDetails} />
+          <PersonalDetails details={cv.personalDetails} />
         </div>
 
         <h2 className="section-heading">Work Experience</h2>
@@ -25,6 +26,18 @@ export default function App() {
         })}
         <h2 className="section-heading">Skills</h2>
         <Skills skills={cv.skills} />
+      </div>
+
+      <div className="right-side">
+        <div className="editor">
+          <EditPersonalDetails />
+        </div>
+        <div className="button-bar">
+          <button className="action-btn">PRINT</button>
+          <button className="action-btn">SAVE</button>
+          <button className="action-btn">LOAD</button>
+          <button className="action-btn clear-btn">CLEAR</button>
+        </div>
       </div>
     </div>
   );

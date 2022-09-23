@@ -1,7 +1,7 @@
 import React from "react";
 
-export default function PersonalDetails({ info }) {
-  const { name, title, location, phone, email, description } = info;
+export default function PersonalDetails({ details }) {
+  const { name, title, location, phone, email, description } = details;
   return (
     <>
       <header>

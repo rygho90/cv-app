@@ -1,0 +1,23 @@
+.close-btn {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: right;
+    cursor: pointer;
+}
+
+.button-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.action-btn {
+    padding: 10px 20px;
+    margin: 10px;
+    color: white;
+    background-color: rgb(28, 124, 28);
+}
+
+.clear-btn {
+    background-color: rgb(255, 89, 89);
+}
