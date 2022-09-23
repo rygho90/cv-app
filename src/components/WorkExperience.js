@@ -4,7 +4,7 @@ export default function WorkExperience(props) {
   const { company, title, startYear, endYear, description } = props;
 
   return (
-    <>
+    <div className="work_experience__info-block">
       <div className="split-row">
         <div>{title}</div>
         <div>
@@ -13,6 +13,6 @@ export default function WorkExperience(props) {
         </div>
       </div>
       <p>{description}</p>
-    </>
+    </div>
   );
 }

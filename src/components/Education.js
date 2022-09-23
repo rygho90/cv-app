@@ -4,7 +4,7 @@ export default function Education(props) {
   const { school, degree, field, startYear, endYear } = props;
 
   return (
-    <>
+    <div className="education__info-block">
       <div className="split-row">
         <div>
           <div>{degree}</div>
@@ -17,6 +17,6 @@ export default function Education(props) {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

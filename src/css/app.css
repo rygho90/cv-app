@@ -4,6 +4,7 @@
 @import "skills.css";
 @import "buttons.css";
 @import "edit-personal-details.css";
+@import "education.css";
 
 .main-container {
   display: flex;
@@ -80,11 +81,12 @@ h1 {
 .hover-border {
   border: solid 1px white;
   width: 100%;
-  padding: 5px;
+  
 }
 .hover-border:hover {
-  border: solid 1px red;
+  
   cursor: pointer;
+  background-color: aliceblue;
 }
 
 ul {
