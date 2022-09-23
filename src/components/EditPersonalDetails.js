@@ -7,6 +7,7 @@ export default function EditPersonalDetails({
 }) {
   function handleChange(changes) {
     handlePersonalDetailsChange({ ...details, ...changes });
+    console.log('beep')
   }
 
   return (

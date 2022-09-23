@@ -15,9 +15,10 @@ export default function App() {
   }
 
   function handlePersonalDetailsChange(details) {
-    const newCv = cv;
-    newCv.personalDetails = details;
-    setCv(newCv);
+    setCv({
+      ...cv,
+      personalDetails: details
+    });
   }
 
   return (
