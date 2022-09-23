@@ -12,33 +12,45 @@ export default function App() {
 
   return (
     <div className="main-container">
+      <div className="button-bar">
+        <button className="action-btn">PRINT</button>
+        <button className="action-btn">SAVE</button>
+        <button className="action-btn">LOAD</button>
+        <button className="action-btn clear-btn">CLEAR</button>
+      </div>
       <div className="cv">
-        <div className="red-border">
+        <div className="hover-border">
           <PersonalDetails details={cv.personalDetails} />
         </div>
 
-        <h2 className="section-heading">Work Experience</h2>
-        {cv.workExperience.map((job) => {
-          return <WorkExperience key={job.id} {...job} />;
-        })}
-        <h2 className="section-heading">Education</h2>
-        {cv.education.map((school) => {
-          return <Education key={school.id} {...school} />;
-        })}
-        <h2 className="section-heading">Skills</h2>
-        <Skills skills={cv.skills} />
+        <div className="hover-border">
+          <h2 className="section-heading">Work Experience</h2>
+          {cv.workExperience.map((job) => {
+            return <WorkExperience key={job.id} {...job} />;
+          })}
+        </div>
+
+        <div className="hover-border">
+          <h2 className="section-heading">Education</h2>
+          {cv.education.map((school) => {
+            return <Education key={school.id} {...school} />;
+          })}
+        </div>
+
+        <div className="hover-border">
+          <h2 className="section-heading">Skills</h2>
+          <Skills skills={cv.skills} />
+        </div>
       </div>
 
       <div className="right-side">
         <div className="editor">
-          {!editScreen && <div className="info-text">Click a section to begin editing.</div>}
-          {editScreen === "personalDetails" && <EditPersonalDetails details={cv.personalDetails}/>}
-        </div>
-        <div className="button-bar">
-          <button className="action-btn">PRINT</button>
-          <button className="action-btn">SAVE</button>
-          <button className="action-btn">LOAD</button>
-          <button className="action-btn clear-btn">CLEAR</button>
+          {!editScreen && (
+            <div className="info-text">Click a section to begin editing.</div>
+          )}
+          {editScreen === "personalDetails" && (
+            <EditPersonalDetails details={cv.personalDetails} />
+          )}
         </div>
       </div>
     </div>

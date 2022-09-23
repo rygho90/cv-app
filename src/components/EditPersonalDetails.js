@@ -22,6 +22,9 @@ export default function EditPersonalDetails({ details }) {
         <br />
         <label htmlFor="location">Location</label>
         <input type="text" name="location" id="location" value={location} />
+        <br />
+        <label htmlFor="description">Description</label>
+        <textarea name="description" value={description} id="description" className="edit-personal-details__textarea"/>
       </div>
     </>
   );

@@ -3,6 +3,7 @@
 @import "work-experience.css";
 @import "skills.css";
 @import "buttons.css";
+@import "edit-personal-details.css";
 
 .main-container {
   display: flex;
@@ -32,8 +33,8 @@
   padding: 40px;
   padding-top: 15px;
   padding-bottom: 60px;
-  width: 595px;
-  min-height: 470px;
+  width: 500px;
+  min-height: 500px;
   border-radius: 5px;
   border: 1px solid black;
   box-shadow: 5px 0 6px 0 hsl(0 0% 0% / 0.2);
@@ -76,11 +77,12 @@ h1 {
   text-align: right;
 }
 
-.red-border {
+.hover-border {
   border: solid 1px white;
+  width: 100%;
   padding: 5px;
 }
-.red-border:hover {
+.hover-border:hover {
   border: solid 1px red;
   cursor: pointer;
 }
@@ -93,6 +95,10 @@ ul {
 
 .edit-grid {
   display: grid;
+}
+
+.edit-grid input {
+  padding: 2px 4px;
 }
 
 .editor-heading {
