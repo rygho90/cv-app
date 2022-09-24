@@ -7,6 +7,10 @@ export default function EditJob(props) {
     handleWorkExperienceChange(job.id, { ...job, ...changes });
   }
 
+  function handleDelete() {
+    handleWorkExperienceDelete(job.id)
+  }
+
   return (
     <>
       <div className="edit-grid">
@@ -68,7 +72,7 @@ export default function EditJob(props) {
           />
         </div>
       </div>
-      <button>Delete Job</button>
+      <button onClick={handleDelete}>Delete Job</button>
       <br />
     </>
   );
