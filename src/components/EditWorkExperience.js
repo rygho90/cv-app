@@ -8,8 +8,8 @@ export default function EditWorkExperience({
   handleWorkExperienceAdd,
   handleWorkExperienceDelete,
 }) {
-  function handleChange(changes) {
-    handleWorkExperienceChange({ ...jobs, ...changes });
+  function handleAdd() {
+    handleWorkExperienceAdd();
   }
 
   return (
@@ -26,7 +26,7 @@ export default function EditWorkExperience({
           handleWorkExperienceDelete={handleWorkExperienceDelete}
         />
       ))}
-      <button>Add New Job</button>
+      <button onClick={handleAdd}>Add New Job</button>
     </>
   );
 }
