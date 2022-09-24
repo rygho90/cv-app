@@ -7,7 +7,6 @@ export default function EditPersonalDetails({
 }) {
   function handleChange(changes) {
     handlePersonalDetailsChange({ ...details, ...changes });
-    console.log('beep')
   }
 
   return (
@@ -27,13 +26,31 @@ export default function EditPersonalDetails({
         />
         <br />
         <label htmlFor="title">Title</label>
-        <input type="text" name="title" id="title" value={details.title} />
+        <input
+          type="text"
+          name="title"
+          id="title"
+          value={details.title}
+          onChange={(e) => handleChange({ title: e.target.value })}
+        />
         <br />
         <label htmlFor="phone">Phone</label>
-        <input type="text" name="phone" id="phone" value={details.phone} />
+        <input
+          type="text"
+          name="phone"
+          id="phone"
+          value={details.phone}
+          onChange={(e) => handleChange({ phone: e.target.value })}
+        />
         <br />
         <label htmlFor="email">Email</label>
-        <input type="text" name="email" id="email" value={details.email} />
+        <input
+          type="text"
+          name="email"
+          id="email"
+          value={details.email}
+          onChange={(e) => handleChange({ email: e.target.value })}
+        />
         <br />
         <label htmlFor="location">Location</label>
         <input
@@ -41,6 +58,7 @@ export default function EditPersonalDetails({
           name="location"
           id="location"
           value={details.location}
+          onChange={(e) => handleChange({ location: e.target.value })}
         />
         <br />
         <label htmlFor="description">Description</label>
@@ -49,6 +67,7 @@ export default function EditPersonalDetails({
           value={details.description}
           id="description"
           className="edit-personal-details__textarea"
+          onChange={(e) => handleChange({ description: e.target.value })}
         />
       </div>
     </>

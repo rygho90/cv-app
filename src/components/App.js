@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+
 import "../css/app.css";
 import PersonalDetails from "./PersonalDetails";
 import WorkExperience from "./WorkExperience";
 import Education from "./Education";
 import Skills from "./Skills";
 import EditPersonalDetails from "./EditPersonalDetails";
+import EditWorkExperience from "./EditWorkExperience";
 
 export default function App() {
   const [cv, setCv] = useState(sampleCv);
@@ -17,7 +20,33 @@ export default function App() {
   function handlePersonalDetailsChange(details) {
     setCv({
       ...cv,
-      personalDetails: details
+      personalDetails: details,
+    });
+  }
+
+  function handleWorkExperienceAdd() {
+    const newJob = {
+      id: uuidv4(),
+      company: "",
+      title: "",
+      startYear: "",
+      endYear: "",
+      description: "",
+    };
+
+    setCv({
+      ...cv,
+      workExperience: [...cv.workExperience, newJob],
+    });
+  }
+
+  function handleWorkExperienceChange(id, job) {
+    const newJobs = [...cv.workExperience];
+    const index = newJobs.findIndex((j) => j.id === id);
+    newJobs[index] = job;
+    setCv({
+      ...cv,
+      workExperience: newJobs,
     });
   }
 
@@ -37,7 +66,10 @@ export default function App() {
           <PersonalDetails details={cv.personalDetails} />
         </div>
 
-        <div className="hover-border">
+        <div
+          className="hover-border"
+          onClick={() => handleEditScreenChange("workExperience")}
+        >
           <h2 className="section-heading">Work Experience</h2>
           {cv.workExperience.map((job) => {
             return <WorkExperience key={job.id} {...job} />;
@@ -67,6 +99,14 @@ export default function App() {
               details={cv.personalDetails}
               handleEditScreenChange={handleEditScreenChange}
               handlePersonalDetailsChange={handlePersonalDetailsChange}
+            />
+          )}
+          {editScreen === "workExperience" && (
+            <EditWorkExperience
+              jobs={cv.workExperience}
+              handleEditScreenChange={handleEditScreenChange}
+              handleWorkExperienceChange={handleWorkExperienceChange}
+              handleWorkExperienceAdd={handleWorkExperienceAdd}
             />
           )}
         </div>
