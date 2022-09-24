@@ -1,0 +1,6 @@
+.edit-job__textarea {
+    resize: none;
+    height: 75px;
+    width: 100%;
+    padding: 5px;
+}

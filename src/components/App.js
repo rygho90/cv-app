@@ -50,6 +50,15 @@ export default function App() {
     });
   }
 
+  function handleWorkExperienceDelete(id) {
+    const newJobs = [...cv.workExperience];
+    newJobs = newJobs.filter((job) => job.id !== id);
+    setCv({
+      ...cv,
+      workExperience: newJobs,
+    });
+  }
+
   return (
     <div className="main-container">
       <div className="button-bar">
@@ -107,6 +116,7 @@ export default function App() {
               handleEditScreenChange={handleEditScreenChange}
               handleWorkExperienceChange={handleWorkExperienceChange}
               handleWorkExperienceAdd={handleWorkExperienceAdd}
+              handleWorkExperienceDelete={handleWorkExperienceDelete}
             />
           )}
         </div>

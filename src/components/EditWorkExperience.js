@@ -1,10 +1,12 @@
 import React from "react";
+import EditJob from "./EditJob";
 
 export default function EditWorkExperience({
   jobs,
   handleEditScreenChange,
   handleWorkExperienceChange,
-  handleWorkExperienceAdd
+  handleWorkExperienceAdd,
+  handleWorkExperienceDelete,
 }) {
   function handleChange(changes) {
     handleWorkExperienceChange({ ...jobs, ...changes });
@@ -16,8 +18,15 @@ export default function EditWorkExperience({
         &times;
       </div>
       <h2 className="editor-heading">Work Experience</h2>
-   
- 
+      {jobs.map((job) => (
+        <EditJob
+          key={job.id}
+          job={job}
+          handleWorkExperienceChange={handleWorkExperienceChange}
+          handleWorkExperienceDelete={handleWorkExperienceDelete}
+        />
+      ))}
+      <button>Add New Job</button>
     </>
   );
 }

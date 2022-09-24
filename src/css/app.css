@@ -5,6 +5,7 @@
 @import "buttons.css";
 @import "edit-personal-details.css";
 @import "education.css";
+@import "edit-job.css";
 
 .main-container {
   display: flex;
@@ -72,6 +73,8 @@ h1 {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  gap: 5px;
+  margin-bottom: 5px;
 }
 
 .align-right {
@@ -101,6 +104,10 @@ ul {
 
 .edit-grid input {
   padding: 2px 4px;
+}
+
+.edit-grid .split-row  input {
+  width: 100%;
 }
 
 .editor-heading {
