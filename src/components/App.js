@@ -8,6 +8,7 @@ import Education from "./Education";
 import Skills from "./Skills";
 import EditPersonalDetails from "./EditPersonalDetails";
 import EditWorkExperience from "./EditWorkExperience";
+import EditEducation from "./EditEducation";
 
 export default function App() {
   const [cv, setCv] = useState(sampleCv);
@@ -59,6 +60,41 @@ export default function App() {
     });
   }
 
+  function handleEducationAdd() {
+    const newSchool = {
+      id: uuidv4(),
+      school: "",
+      degree: "",
+      field: "",
+      startYear: "",
+      endYear: "",
+    };
+
+    setCv({
+      ...cv,
+      education: [...cv.education, newSchool],
+    });
+  }
+
+  function handleEducationChange(id, school) {
+    const newSchools = [...cv.education];
+    const index = newSchools.findIndex((s) => s.id === id);
+    newSchools[index] = school;
+    setCv({
+      ...cv,
+      education: newSchools,
+    });
+  }
+
+  function handleEducationDelete(id) {
+    const schoolList = [...cv.education];
+    const newSchools = schoolList.filter((school) => school.id !== id);
+    setCv({
+      ...cv,
+      education: newSchools,
+    });
+  }
+
   return (
     <div className="main-container">
       <div className="button-bar">
@@ -85,7 +121,10 @@ export default function App() {
           })}
         </div>
 
-        <div className="hover-border">
+        <div
+          className="hover-border"
+          onClick={() => handleEditScreenChange("education")}
+        >
           <h2 className="section-heading">Education</h2>
           {cv.education.map((school) => {
             return <Education key={school.id} {...school} />;
@@ -117,6 +156,15 @@ export default function App() {
               handleWorkExperienceChange={handleWorkExperienceChange}
               handleWorkExperienceAdd={handleWorkExperienceAdd}
               handleWorkExperienceDelete={handleWorkExperienceDelete}
+            />
+          )}
+          {editScreen === "education" && (
+            <EditEducation
+              schools={cv.education}
+              handleEditScreenChange={handleEditScreenChange}
+              handleWorkExperienceChange={handleEducationChange}
+              handleWorkExperienceAdd={handleEducationAdd}
+              handleWorkExperienceDelete={handleEducationDelete}
             />
           )}
         </div>
